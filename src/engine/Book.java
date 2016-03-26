@@ -7,6 +7,7 @@ package engine;
 public class Book
 {
     private String title;
+    private int genre;
     private Author author;
     private int isbn;
     
@@ -17,9 +18,10 @@ public class Book
         isbn = 0;
     }
     
-    public Book(String title, Author author, int isbn)
+    public Book(String title, int genre, Author author, int isbn)
     {
         this.title = title;
+        this.genre = genre;
         this.author = author;
         this.isbn = isbn;
     }
@@ -27,6 +29,11 @@ public class Book
     public String getTitle()
     {
         return title;
+    }
+    
+    public int getGenre()
+    {
+        return genre;
     }
 
     public Author getAuthor()
@@ -42,6 +49,11 @@ public class Book
     public void setTitle(String title)
     {
         this.title = title;
+    }
+    
+    public void setGenre(int genre)
+    {
+        this.genre = genre;
     }
 
     public void setAuthor(Author author)
