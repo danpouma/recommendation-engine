@@ -6,35 +6,33 @@ package engine;
  */
 public class Person
 {
-    private String firstName;
-    private String lastName;
+    private final int id;
+    private String username;
     private String gender;
+    private int age;
+    private static int counter = 0;
 
     public Person()
     {
-        firstName = "";
-        lastName = "";
+        id = counter++;
+        username = "";
         gender = "";
         age = 0;
     }
     
-    public Person(String firstName, String lastName, String gender, int age)
+    public Person(String username, String gender, int age)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        id = counter++;
+        this.username = username;
         this.gender = gender;
         this.age = age;
     }
 
-    public void setFirstName(String firstName)
+    public void setUsername(String username)
     {
-        this.firstName = firstName;
+        this.username = username;
     }
 
-    public void setLastName(String lastName)
-    {
-        this.lastName = lastName;
-    }
 
     public void setGender(String gender)
     {
@@ -45,15 +43,15 @@ public class Person
     {
         this.age = age;
     }
-
-    public String getFirstName()
+    
+    public int getId()
     {
-        return firstName;
+        return id;
     }
-
-    public String getLastName()
+    
+    public String getUsername()
     {
-        return lastName;
+        return username;
     }
 
     public String getGender()
@@ -65,11 +63,10 @@ public class Person
     {
         return age;
     }
-    private int age;
     
     @Override
     public String toString()
     {
-        return "Person{" + "firstName=" + firstName + ", lastName=" + lastName + ", gender=" + gender + ", age=" + age + '}';
+        return "Person{" + "username=" + username + ", gender=" + gender + ", age=" + age + '}';
     }
 }

@@ -10,30 +10,21 @@ public class PersonTest
 {
     public static void main(String[] args)
     {
-        Person person = new Person("dan", "poumakis", "male", 20);
+        Person person = new Person("danpouma", "male", 20);
         
-        person.setFirstName("test");
-        person.setLastName("test");
+        person.setUsername("test");
         person.setGender("male");
         person.setAge(21);
         
-        if (person.getFirstName() == "test")
+        if (person.getUsername() == "test")
         {
-            System.out.println("firstName: Pass");
+            System.out.println("username: Pass");
         }
         else
         {
-            System.out.println("firstName: Fail");
+            System.out.println("username: Fail");
         }
         
-        if (person.getLastName() == "test")
-        {
-            System.out.println("lastName: Pass");
-        }
-        else
-        {
-            System.out.println("lastName: Fail");
-        }
         
         if (person.getGender() == "male")
         {

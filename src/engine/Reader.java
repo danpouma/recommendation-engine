@@ -11,8 +11,8 @@ public class Reader extends Person
         super();
     }
     
-    public Reader(String firstName, String lastName, String gender, int age)
+    public Reader(String username, String gender, int age)
     {
-        super(firstName, lastName, gender, age);
+        super(username, gender, age);
     }
 }

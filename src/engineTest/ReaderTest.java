@@ -1,6 +1,6 @@
 package engineTest;
 
-import engine.Author;
+import engine.Reader;
 
 /**
  *
@@ -10,32 +10,23 @@ public class ReaderTest
 {
     public static void main(String[] args)
     {
-        Author author = new Author("dan", "poumakis", "male", 20);
+        Reader person = new Reader("danpouma", "male", 20);
         
-        author.setFirstName("test");
-        author.setLastName("test");
-        author.setGender("male");
-        author.setAge(21);
+        person.setUsername("test");
+        person.setGender("male");
+        person.setAge(21);
         
-        if (author.getFirstName() == "test")
+        if (person.getUsername() == "test")
         {
-            System.out.println("firstName: Pass");
+            System.out.println("username: Pass");
         }
         else
         {
-            System.out.println("firstName: Fail");
+            System.out.println("username: Fail");
         }
         
-        if (author.getLastName() == "test")
-        {
-            System.out.println("lastName: Pass");
-        }
-        else
-        {
-            System.out.println("lastName: Fail");
-        }
         
-        if (author.getGender() == "male")
+        if (person.getGender() == "male")
         {
             System.out.println("gender: Pass");
         }
@@ -44,7 +35,7 @@ public class ReaderTest
             System.out.println("gender: Fail");
         }
         
-        if (author.getAge() == 21)
+        if (person.getAge() == 21)
         {
             System.out.println("age: Pass");
         }
