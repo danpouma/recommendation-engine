@@ -8,21 +8,21 @@ public class Book
 {
     private String title;
     private int genre;
-    private Author author;
+    //private Author author;
     private int isbn;
     
     public Book() 
     {
         title = "";
-        author = new Author();
+        //author = new Author();
         isbn = 0;
     }
     
-    public Book(String title, int genre, Author author, int isbn)
+    public Book(String title, int genre, int isbn)
     {
         this.title = title;
         this.genre = genre;
-        this.author = author;
+        //this.author = author;
         this.isbn = isbn;
     }
 
@@ -34,11 +34,6 @@ public class Book
     public int getGenre()
     {
         return genre;
-    }
-
-    public Author getAuthor()
-    {
-        return author;
     }
 
     public int getIsbn()
@@ -56,19 +51,14 @@ public class Book
         this.genre = genre;
     }
 
-    public void setAuthor(Author author)
-    {
-        this.author = author;
-    }
-
     public void setIsbn(int isbn)
     {
         this.isbn = isbn;
     }
-    
+
     @Override
     public String toString()
     {
-        return "Book{" + "title=" + title + ", author=" + author + ", isbn=" + isbn + '}';
+        return "Book{" + "title=" + title + ", genre=" + genre + ", isbn=" + isbn + '}';
     }
 }

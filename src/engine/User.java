@@ -4,7 +4,7 @@ package engine;
  *
  * @author dpoumakis
  */
-public class Person
+public class User
 {
     private final int id;
     private String username;
@@ -12,7 +12,7 @@ public class Person
     private int age;
     private static int counter = 0;
 
-    public Person()
+    public User()
     {
         id = counter++;
         username = "";
@@ -20,7 +20,7 @@ public class Person
         age = 0;
     }
     
-    public Person(String username, String gender, int age)
+    public User(String username, String gender, int age)
     {
         id = counter++;
         this.username = username;

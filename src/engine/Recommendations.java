@@ -78,6 +78,4 @@ public class Recommendations
     {
         this.books = books;
     }
-    
-    
 }

@@ -1,16 +1,16 @@
 package engineTest;
 
-import engine.Person;
+import engine.User;
 
 /**
  *
  * @author dpoumakis
  */
-public class PersonTest
+public class UserTest
 {
     public static void main(String[] args)
     {
-        Person person = new Person("danpouma", "male", 20);
+        User person = new User("danpouma", "male", 20);
         
         person.setUsername("test");
         person.setGender("male");
