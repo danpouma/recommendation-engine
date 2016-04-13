@@ -13,9 +13,12 @@ import java.util.StringTokenizer;
  */
 public class DataLoader
 {
-    File file;
-    FileInputStream instream;
-    DataInputStream dataFile;
+    File userRatingFile;
+    File booksFile;
+    FileInputStream userRatingStream;
+    FileInputStream bookStream;
+    DataInputStream userRatingDataFile;
+    DataInputStream bookDataFile;
 
     String line;
     StringTokenizer stringTok;
@@ -24,17 +27,21 @@ public class DataLoader
     {
         try
         {
-            file = new File("src/UserData.txt");
-            instream = new FileInputStream(file);
-            dataFile = new DataInputStream(instream);
+            userRatingFile = new File("src/UserData.txt");
+            booksFile = new File("src/BookList.txt");
+            userRatingStream = new FileInputStream(userRatingFile);
+            bookStream = new FileInputStream(booksFile);
+            userRatingDataFile = new DataInputStream(userRatingStream);
+            bookDataFile = new DataInputStream(bookStream);
+            
             
             for (int i = 0; i < 55; i++)
             {
-                line = (String) dataFile.readLine();
+                line = (String) userRatingDataFile.readLine();
                 
                 User user = new User(line);
                 
-                line = (String) dataFile.readLine();
+                line = (String) userRatingDataFile.readLine();
                 
                 stringTok = new StringTokenizer(line); 
                 
@@ -43,9 +50,23 @@ public class DataLoader
                     user.getRecommendations().addRating(stringTok.nextToken());        
                 }
                 
+                String bookLine = (String) bookDataFile.readLine();
+                Book book = new Book();
+                stringTok = new StringTokenizer(bookLine);
+                
+                while (stringTok.hasMoreTokens())
+                {
+                    book.setAuthor(stringTok.nextToken(","));
+                    String title = stringTok.nextToken("\n");
+                    title = title.replace(",", "");
+                    book.setTitle(title);
+                }
+                System.out.print(book.getAuthor() + "-->");
+                System.out.println(book.getTitle());
+                user.getRecommendations().addBook(book);
                 users.add(user);
             }
-            instream.close();
+            userRatingStream.close();
         } 
         catch (Exception e)
         {
