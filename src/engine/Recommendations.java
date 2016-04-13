@@ -11,17 +11,24 @@ public class Recommendations
     private int id;
     private int userId;
     private LinkedList books;
+    private LinkedList ratings;
 
-    public Recommendations(int id, int userId)
+    public Recommendations(int userId)
     {
-        this.id = id;
+        this.id = 0;
         this.userId = userId;
         books = new LinkedList();
+        ratings = new LinkedList();
     }
     
     public void addBook(Book book)
     {
         books.add(book);
+    }
+    
+    public void addRating(String rating)
+    {
+        ratings.add(rating);
     }
     
     // Remove by index
@@ -62,6 +69,11 @@ public class Recommendations
     public LinkedList getBooks()
     {
         return books;
+    }
+    
+    public LinkedList getRatings()
+    {
+        return ratings;
     }
 
     public void setId(int id)

@@ -11,6 +11,7 @@ public class User
     private String gender;
     private int age;
     private static int counter = 0;
+    private Recommendations recommendations;
 
     public User()
     {
@@ -18,6 +19,16 @@ public class User
         username = "";
         gender = "";
         age = 0;
+        recommendations = new Recommendations(id);
+    }
+    
+    public User(String username)
+    {
+        id = counter++;
+        this.username = username;
+        gender = "";
+        age = 0;
+        recommendations = new Recommendations(id);
     }
     
     public User(String username, String gender, int age)
@@ -26,6 +37,7 @@ public class User
         this.username = username;
         this.gender = gender;
         this.age = age;
+        recommendations = new Recommendations(id);
     }
 
     public void setUsername(String username)
@@ -62,6 +74,11 @@ public class User
     public int getAge()
     {
         return age;
+    }
+    
+    public Recommendations getRecommendations()
+    {
+        return recommendations;
     }
     
     @Override
