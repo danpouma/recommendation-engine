@@ -15,12 +15,15 @@ public class DataLoader
 {
     File userRatingFile;
     File booksFile;
+    
     FileInputStream userRatingStream;
     FileInputStream bookStream;
+    
     DataInputStream userRatingDataFile;
     DataInputStream bookDataFile;
 
     String line;
+    
     StringTokenizer stringTok;
 
     public DataLoader(ArrayList<User> users)
@@ -83,5 +86,4 @@ public class DataLoader
         }
 
     }
-
 }

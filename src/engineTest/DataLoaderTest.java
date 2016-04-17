@@ -15,5 +15,10 @@ public class DataLoaderTest
         ArrayList<User> users = new ArrayList<>();
         
         DataLoader loader = new DataLoader(users);
+        
+        for (User user : users)
+        {
+            System.out.println(user.getUsername());
+        }
     }
 }
