@@ -18,11 +18,13 @@ public class UsersDataLoader
     String line;
     StringTokenizer stringTok;
     
-    User user;
+    ArrayList users;
     ArrayList ratings;
         
     public UsersDataLoader()
     {
+        users = new ArrayList();
+        
         try
         {
             userRatingFile = new File("src/UserData.txt");
@@ -33,7 +35,7 @@ public class UsersDataLoader
             {   
                 line = (String) userData.readLine();
                 
-                user = new User();
+                User user = new User();
                 
                 stringTok = new StringTokenizer(line);
                 
@@ -63,6 +65,12 @@ public class UsersDataLoader
                 // Bug where first elem is nothing
                 // this fixes it for now :P
                 ratings.remove(0);
+                
+                // Give ratings to user
+                user.setRatings(ratings);
+                
+                // Add user to users
+                users.add(user);
             }
             
             // Close the streams
@@ -71,18 +79,17 @@ public class UsersDataLoader
         } 
         catch (Exception e)
         {
-            System.out.println(e);
             System.out.println("Error");
         }
-        
-       // Output ratings
-        System.out.println(user.getUsername());
-        System.out.println(ratings.size());
-        
-        System.out.println("first elem: " + ratings.get(0));
-        for (Object rating : ratings)
-        {
-            System.out.println(rating);
-        } 
+    }
+    
+    public ArrayList getUsers()
+    {
+        return users;
+    }
+
+    public ArrayList getRatings()
+    {
+        return ratings;
     }
 }

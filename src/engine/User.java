@@ -1,5 +1,7 @@
 package engine;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author dpoumakis
@@ -11,6 +13,7 @@ public class User
     private String gender;
     private int age;
     private static int counter = 0;
+    private ArrayList ratings;
     private Recommendations recommendations;
 
     public User()
@@ -19,6 +22,7 @@ public class User
         username = "";
         gender = "";
         age = 0;
+        ratings = new ArrayList();
         recommendations = new Recommendations(id);
     }
     
@@ -28,6 +32,7 @@ public class User
         this.username = username;
         gender = "";
         age = 0;
+        ratings = new ArrayList();
         recommendations = new Recommendations(id);
     }
     
@@ -37,7 +42,24 @@ public class User
         this.username = username;
         this.gender = gender;
         this.age = age;
+        ratings = new ArrayList();
         recommendations = new Recommendations(id);
+    }
+
+    public ArrayList getRatings()
+    {
+        return ratings;
+    }
+
+    public void setRatings(ArrayList ratings)
+    {
+        this.ratings = ratings;
+    }
+    
+    // Make sure this works
+    public void addRating(Object rating)
+    {
+        ratings.add(rating);
     }
 
     public void setUsername(String username)
