@@ -2,6 +2,7 @@ package engineTest;
 
 import engine.Book;
 import engine.BooksDataLoader;
+import java.util.ArrayList;
 
 /**
  *
@@ -13,7 +14,10 @@ public class BooksDataLoaderTest
     {
         BooksDataLoader loader = new BooksDataLoader();
         
-        for (Book book : loader.getBooks())
+        ArrayList<Book> books = loader.getBooks();
+        
+        System.out.println("Number of books: " + books.size());
+        for (Book book : books)
         {
             System.out.print(book.getTitle() + " by... ");
             System.out.println(book.getAuthor());
