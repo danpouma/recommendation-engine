@@ -40,5 +40,31 @@ public class Engine
         // Output size of the lists... Should be 55 each
         System.out.println("Number of books: " + books.size());
         System.out.println("Number of users: " + users.size());
+        
+        // Simple comparison - can make a class that does this in the end
+        User user1;
+        User user2;
+        
+        // Get users from list
+        user1 = users.get(0);
+        user2 = users.get(1);
+        
+        int matches = 0;
+        for (int rating = 0; rating < 55; rating++)
+        {
+            ArrayList user1Ratings = user1.getRatings();
+            ArrayList user2Ratings = user2.getRatings();
+            
+            if (user1Ratings.get(rating).equals(user2Ratings.get(rating)))
+            {
+                matches++;
+            }
+            else
+            {
+                // do nothing
+            }
+        }
+        
+        System.out.println("Matches found: " + matches);
     }
 }
