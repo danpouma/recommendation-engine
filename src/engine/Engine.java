@@ -47,24 +47,31 @@ public class Engine
         
         // Get users from list
         user1 = users.get(0);
-        user2 = users.get(1);
+        //user2 = users.get(1);
         
         int matches = 0;
-        for (int rating = 0; rating < 55; rating++)
+        for (int people = 1; people < 55; people++)
         {
-            ArrayList user1Ratings = user1.getRatings();
-            ArrayList user2Ratings = user2.getRatings();
+            // Comparing user1 to every other person
+            user2 = users.get(people);
+            for (int rating = 0; rating < 55; rating++)
+            {   
+                
+                ArrayList user1Ratings = user1.getRatings();
+                ArrayList user2Ratings = user2.getRatings();
+
+                if (user1Ratings.get(rating).equals(user2Ratings.get(rating)))
+                {
+                    matches++;
+                }
+                else
+                {
+                    // do nothing
+                }
+            }
             
-            if (user1Ratings.get(rating).equals(user2Ratings.get(rating)))
-            {
-                matches++;
-            }
-            else
-            {
-                // do nothing
-            }
+            System.out.println("Matches found: " + matches);
+            matches = 0;
         }
-        
-        System.out.println("Matches found: " + matches);
     }
 }

@@ -20,7 +20,7 @@ public class Recommendations
         books = new LinkedList();
         ratings = new LinkedList();
     }
-    
+     
     public void addBook(Book book)
     {
         books.add(book);
