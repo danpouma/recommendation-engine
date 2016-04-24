@@ -10,6 +10,8 @@ import java.util.ArrayList;
  */
 public class UsersGui
 {
+
+    private List lst;
     private ArrayList<User> users;
     private Frame mainFrame;
     private Label headerLabel;
@@ -22,8 +24,6 @@ public class UsersGui
         this.users = users;
         prepareGUI();
     }
-
-    
 
     public void prepareGUI()
     {
@@ -52,8 +52,8 @@ public class UsersGui
 
         // Test to add list stuff
         // Will need to loop to add people
-        List lst = new List(4, false);
-        
+        lst = new List(4, false);
+
         for (User user : users)
         {
             lst.add(user.getUsername());
@@ -88,6 +88,8 @@ public class UsersGui
             public void actionPerformed(ActionEvent e)
             {
                 statusLabel.setText("A Frame shown to the user.");
+                msglabel.setText(lst.getItem(lst.getSelectedIndex()));
+                System.out.println(msglabel.getText());
                 frame.setVisible(true);
             }
         });
