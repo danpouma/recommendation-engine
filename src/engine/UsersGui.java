@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class UsersGui
 {
 
-    private List lst;
+    private List list;
     private ArrayList<User> users;
     private Frame mainFrame;
     private Label headerLabel;
@@ -52,13 +52,13 @@ public class UsersGui
 
         // Test to add list stuff
         // Will need to loop to add people
-        lst = new List(4, false);
+        list = new List(4, false);
 
         for (User user : users)
         {
-            lst.add(user.getUsername());
+            list.add(user.getUsername());
         }
-        mainFrame.add(lst);
+        mainFrame.add(list);
 
         //mainFrame.add(headerLabel);
         mainFrame.add(controlPanel);
@@ -74,6 +74,9 @@ public class UsersGui
         frame.setSize(300, 300);
         frame.setLayout(new FlowLayout());
         frame.add(msglabel);
+        
+        // More labels
+        
         frame.addWindowListener(new WindowAdapter()
         {
             public void windowClosing(WindowEvent windowEvent)
@@ -81,14 +84,16 @@ public class UsersGui
                 frame.dispose();
             }
         });
-        Button okButton = new Button("Open a Frame");
+        
+        // Frame button for opening selected user
+        Button okButton = new Button("Open user");
 
         okButton.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
                 statusLabel.setText("A Frame shown to the user.");
-                msglabel.setText(lst.getItem(lst.getSelectedIndex()));
+                msglabel.setText(list.getItem(list.getSelectedIndex()));
                 System.out.println(msglabel.getText());
                 frame.setVisible(true);
             }
