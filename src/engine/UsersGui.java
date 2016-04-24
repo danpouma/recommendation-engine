@@ -2,32 +2,30 @@ package engine;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 
 /**
  *
  * @author dpoumakis
  */
-public class UsersGUI
+public class UsersGui
 {
-
+    private ArrayList<User> users;
     private Frame mainFrame;
     private Label headerLabel;
     private Label statusLabel;
     private Panel controlPanel;
     private Label msglabel;
 
-    public UsersGUI()
+    public UsersGui(ArrayList<User> users)
     {
+        this.users = users;
         prepareGUI();
     }
 
-    public static void main(String[] args)
-    {
-        UsersGUI usersGUI = new UsersGUI();
-        usersGUI.showFrameDemo();
-    }
+    
 
-    private void prepareGUI()
+    public void prepareGUI()
     {
         mainFrame = new Frame("UsersGUI");
         mainFrame.setSize(400, 400);
@@ -55,16 +53,11 @@ public class UsersGUI
         // Test to add list stuff
         // Will need to loop to add people
         List lst = new List(4, false);
-        lst.add("Mercury");
-        lst.add("Venus");
-        lst.add("Earth");
-        lst.add("JavaSoft");
-        lst.add("Mars");
-        lst.add("Jupiter");
-        lst.add("Saturn");
-        lst.add("Uranus");
-        lst.add("Neptune");
-        lst.add("Pluto");
+        
+        for (User user : users)
+        {
+            lst.add(user.getUsername());
+        }
         mainFrame.add(lst);
 
         //mainFrame.add(headerLabel);
@@ -73,7 +66,7 @@ public class UsersGUI
         mainFrame.setVisible(true);
     }
 
-    private void showFrameDemo()
+    public void showFrameDemo()
     {
         headerLabel.setText("Container in action: Frame");
 
