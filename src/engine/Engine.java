@@ -51,5 +51,9 @@ public class Engine
         
         // Make this load data into another class
         MatchFinder matchFinder = new MatchFinder(user1, users);
+        
+        // Display users via gui
+        UsersGui usersGUI = new UsersGui(users);
+        usersGUI.showFrameDemo();
     }
 }
