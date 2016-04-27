@@ -1,5 +1,7 @@
 package engineTest;
 
+import engine.Book;
+import engine.BooksDataLoader;
 import engine.User;
 import engine.UsersDataLoader;
 import engine.UsersGui;
@@ -14,10 +16,13 @@ public class UsersGuiTest
     public static void main(String[] args)
     {
         UsersDataLoader loader = new UsersDataLoader();
+        BooksDataLoader bookLoader = new BooksDataLoader();
         
         ArrayList<User> users = loader.getUsers();
+        ArrayList<Book> books = bookLoader.getBooks();
         
-        UsersGui usersGUI = new UsersGui(users);
+        
+        UsersGui usersGUI = new UsersGui(users, books);
         
         usersGUI.showFrameDemo();
     }

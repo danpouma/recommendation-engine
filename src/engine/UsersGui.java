@@ -13,15 +13,18 @@ public class UsersGui
 
     private List list;
     private ArrayList<User> users;
+    private ArrayList<Book> books;
     private Frame mainFrame;
     private Label headerLabel;
     private Label statusLabel;
     private Panel controlPanel;
     private Label msglabel;
 
-    public UsersGui(ArrayList<User> users)
+    public UsersGui(ArrayList<User> users, ArrayList<Book> books)
     {
         this.users = users;
+        this.books = books;
+        
         prepareGUI();
     }
 
@@ -75,7 +78,10 @@ public class UsersGui
         frame.setLayout(new FlowLayout());
         frame.add(msglabel);
         
-        // More labels
+        List list = new List();
+        frame.add(list);
+        
+        
         
         frame.addWindowListener(new WindowAdapter()
         {
@@ -92,6 +98,16 @@ public class UsersGui
         {
             public void actionPerformed(ActionEvent e)
             {
+                Label bookTitle = new Label();
+                Label userRating = new Label();
+                for (int i = 0; i < 55; i++)
+                {
+                    bookTitle.setText(books.get(i).getTitle());
+                    userRating.setText((String) users.get(i).getRatings().get(i));
+                    
+                    //list.add(bookTitle.getText() + "->" + userRating.getText());
+                    
+                }
                 statusLabel.setText("A Frame shown to the user.");
                 msglabel.setText(list.getItem(list.getSelectedIndex()));
                 System.out.println(msglabel.getText());

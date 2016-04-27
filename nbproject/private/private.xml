@@ -5,7 +5,9 @@
         <group>
             <file>file:/Users/dpoumakis/Documents/github/recommendation-engine/src/engine/UsersGui.java</file>
             <file>file:/Users/dpoumakis/Documents/github/recommendation-engine/src/engineTest/UsersGuiTest.java</file>
+            <file>file:/Users/dpoumakis/Documents/github/recommendation-engine/src/engine/UsersDataLoader.java</file>
             <file>file:/Users/dpoumakis/Documents/github/recommendation-engine/src/engine/Engine.java</file>
+            <file>file:/Users/dpoumakis/Documents/github/recommendation-engine/src/engine/User.java</file>
         </group>
     </open-files>
 </project-private>

@@ -53,7 +53,7 @@ public class Engine
         MatchFinder matchFinder = new MatchFinder(user1, users);
         
         // Display users via gui
-        UsersGui usersGUI = new UsersGui(users);
+        UsersGui usersGUI = new UsersGui(users, books);
         usersGUI.showFrameDemo();
     }
 }
