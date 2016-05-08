@@ -106,6 +106,13 @@ public class User
     @Override
     public String toString()
     {
-        return "Person{" + "username=" + username + ", gender=" + gender + ", age=" + age + '}';
+        String ratingsOutput = "";
+        
+        for (Object rating : ratings)
+        {
+           ratingsOutput += rating.toString() + " ";
+        }
+        
+        return username + ", " + ratingsOutput;
     }
 }
