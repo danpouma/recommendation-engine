@@ -1,8 +1,12 @@
 package engine;
 
+import engineTest.UserDataStorageTest;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +29,7 @@ public class UsersGui
     {
         this.users = users;
         this.books = books;
-        
+
         prepareGUI();
     }
 
@@ -58,13 +62,12 @@ public class UsersGui
         // Will need to loop to add people
         userList = new List(4, false);
         bookList = new List(4, false);
-        
 
         for (User user : users)
         {
             userList.add(user.getUsername());
         }
-        
+
         for (Book book : books)
         {
             bookList.add(book.getTitle());
@@ -86,12 +89,10 @@ public class UsersGui
         frame.setSize(600, 300);
         frame.setLayout(new GridLayout(1, 2));
         frame.add(msglabel);
-        
+
         List list = new List();
         frame.add(list);
-        
-        
-        
+
         frame.addWindowListener(new WindowAdapter()
         {
             @Override
@@ -100,7 +101,7 @@ public class UsersGui
                 frame.dispose();
             }
         });
-        
+
         // Frame button for opening selected user
         Button userButton = new Button("Open user");
 
@@ -111,7 +112,7 @@ public class UsersGui
             {
                 String username = userList.getSelectedItem();
                 msglabel.setText(username);
-                
+
                 for (User user : users)
                 {
                     if (user.getUsername().equals(username))
@@ -124,28 +125,28 @@ public class UsersGui
                             count++;
                         }
                     }
-                    
+
                 }
                 /*
-                Label bookTitle = new Label();
-                Label userRating = new Label();
-                for (int i = 0; i < 55; i++)
-                {
-                    bookTitle.setText(books.get(i).getTitle());
-                    userRating.setText((String) users.get(i).getRatings().get(i));
+                 Label bookTitle = new Label();
+                 Label userRating = new Label();
+                 for (int i = 0; i < 55; i++)
+                 {
+                 bookTitle.setText(books.get(i).getTitle());
+                 userRating.setText((String) users.get(i).getRatings().get(i));
                     
-                    //list.add(bookTitle.getText() + "->" + userRating.getText());
+                 //list.add(bookTitle.getText() + "->" + userRating.getText());
                     
-                }
-                statusLabel.setText("A Frame shown to the user.");
-                msglabel.setText(list.getItem(list.getSelectedIndex()));
-                System.out.println(msglabel.getText());
-                    */
+                 }
+                 statusLabel.setText("A Frame shown to the user.");
+                 msglabel.setText(list.getItem(list.getSelectedIndex()));
+                 System.out.println(msglabel.getText());
+                 */
                 frame.setVisible(true);
             }
         });
         controlPanel.add(userButton);
-        
+
         // Frame button for opening selected user
         Button bookButton = new Button("Open book");
 
@@ -156,25 +157,25 @@ public class UsersGui
             {
                 msglabel.setText(bookList.getSelectedItem());
                 /*
-                Label bookTitle = new Label();
-                Label userRating = new Label();
-                for (int i = 0; i < 55; i++)
-                {
-                    bookTitle.setText(books.get(i).getTitle());
-                    userRating.setText((String) users.get(i).getRatings().get(i));
+                 Label bookTitle = new Label();
+                 Label userRating = new Label();
+                 for (int i = 0; i < 55; i++)
+                 {
+                 bookTitle.setText(books.get(i).getTitle());
+                 userRating.setText((String) users.get(i).getRatings().get(i));
                     
-                    //list.add(bookTitle.getText() + "->" + userRating.getText());
+                 //list.add(bookTitle.getText() + "->" + userRating.getText());
                     
-                }
-                statusLabel.setText("A Frame shown to the user.");
-                msglabel.setText(list.getItem(list.getSelectedIndex()));
-                System.out.println(msglabel.getText());
-                    */
+                 }
+                 statusLabel.setText("A Frame shown to the user.");
+                 msglabel.setText(list.getItem(list.getSelectedIndex()));
+                 System.out.println(msglabel.getText());
+                 */
                 frame.setVisible(true);
             }
         });
         controlPanel.add(bookButton);
-        
+
         // Frame button for opening selected user
         Button addUserButton = new Button("Add user");
 
@@ -183,12 +184,21 @@ public class UsersGui
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                
-                frame.setVisible(true);
+                NewUserGui addUser = new NewUserGui(users, books);
+
+                // Try and store data into text file :)
+                try
+                {
+                    UserDataStorage dataStore = new UserDataStorage(users);
+                }
+                catch (IOException ex)
+                {
+                    Logger.getLogger(UserDataStorageTest.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                //frame.setVisible(true);
             }
         });
         controlPanel.add(addUserButton);
-        
 
         mainFrame.setVisible(true);
     }

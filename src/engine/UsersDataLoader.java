@@ -31,7 +31,7 @@ public class UsersDataLoader
             instream = new FileInputStream(userRatingFile);
             userData = new DataInputStream(instream);
             
-            for (int i = 0; i < 55; i++)
+            while (instream.available() > 0)
             {   
                 line = (String) userData.readLine();
                 
