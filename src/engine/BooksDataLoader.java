@@ -26,7 +26,7 @@ public class BooksDataLoader
         
         try
         {
-            userRatingFile = new File("src/BookList.txt");
+            userRatingFile = new File("./BookList.txt");
             instream = new FileInputStream(userRatingFile);
             bookData = new DataInputStream(instream);
             

@@ -18,7 +18,7 @@ public class UserDataStorage
         
         try
         {
-            fileWriter = new FileWriter("src/UserData.txt");
+            fileWriter = new FileWriter("./UserData.txt");
         }
         catch (IOException ex)
         {

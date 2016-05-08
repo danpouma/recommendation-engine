@@ -30,8 +30,8 @@ public class DataLoader
     {
         try
         {
-            userRatingFile = new File("src/UserData.txt");
-            booksFile = new File("src/BookList.txt");
+            userRatingFile = new File("./UserData.txt");
+            booksFile = new File("./BookList.txt");
             userRatingStream = new FileInputStream(userRatingFile);
             bookStream = new FileInputStream(booksFile);
             userRatingDataFile = new DataInputStream(userRatingStream);

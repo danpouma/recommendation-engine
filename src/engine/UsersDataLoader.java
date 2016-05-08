@@ -27,7 +27,7 @@ public class UsersDataLoader
         
         try
         {
-            userRatingFile = new File("src/UserData.txt");
+            userRatingFile = new File("./UserData.txt");
             instream = new FileInputStream(userRatingFile);
             userData = new DataInputStream(instream);
             
