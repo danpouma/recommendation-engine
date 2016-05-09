@@ -19,7 +19,6 @@ public class EngineGui
     private ArrayList<User> users;
     private ArrayList<Book> books;
     private Frame mainFrame;
-    private Label headerLabel;
     private Label statusLabel;
     private Panel controlPanel;
     private Label msglabel;
@@ -45,8 +44,6 @@ public class EngineGui
                 System.exit(0);
             }
         });
-        headerLabel = new Label();
-        headerLabel.setAlignment(Label.CENTER);
         statusLabel = new Label();
         statusLabel.setAlignment(Label.CENTER);
         statusLabel.setSize(350, 100);
@@ -79,12 +76,10 @@ public class EngineGui
 
     public void showFrameDemo()
     {
-        headerLabel.setText("Container in action: Frame");
-
-        final Frame frame = new Frame("y8");
+        final Frame frame = new Frame();
         frame.setSize(600, 300);
         frame.setLayout(new GridLayout(1, 2));
-        frame.add(msglabel);
+        //frame.add(msglabel);
 
         List list = new List();
         frame.add(list);
@@ -94,6 +89,7 @@ public class EngineGui
             @Override
             public void windowClosing(WindowEvent windowEvent)
             {
+                list.removeAll();
                 frame.dispose();
             }
         });
@@ -106,6 +102,7 @@ public class EngineGui
             @Override
             public void actionPerformed(ActionEvent e)
             {
+                frame.setTitle("User -> " + userList.getSelectedItem());
                 String username = userList.getSelectedItem();
                 msglabel.setText(username);
 
@@ -136,22 +133,7 @@ public class EngineGui
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                msglabel.setText(bookList.getSelectedItem());
-                /*
-                 Label bookTitle = new Label();
-                 Label userRating = new Label();
-                 for (int i = 0; i < 55; i++)
-                 {
-                 bookTitle.setText(books.get(i).getTitle());
-                 userRating.setText((String) users.get(i).getRatings().get(i));
-                    
-                 //list.add(bookTitle.getText() + "->" + userRating.getText());
-                    
-                 }
-                 statusLabel.setText("A Frame shown to the user.");
-                 msglabel.setText(list.getItem(list.getSelectedIndex()));
-                 System.out.println(msglabel.getText());
-                 */
+                frame.setTitle("Book -> " + bookList.getSelectedItem());
                 frame.setVisible(true);
             }
         });
@@ -175,7 +157,7 @@ public class EngineGui
                 {
                     Logger.getLogger(UserDataCollector.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 // Refresh the list
                 userList.removeAll();
                 for (User user : users)
@@ -185,7 +167,7 @@ public class EngineGui
             }
         });
         controlPanel.add(addUserButton);
-        
+
         // Frame button for adding a new book
         Button addBookButton = new Button("Add book");
 
@@ -195,7 +177,7 @@ public class EngineGui
             public void actionPerformed(ActionEvent e)
             {
                 AddBookGui addBook = new AddBookGui(users, books);
-                
+
                 try
                 {
                     UserDataCollector userDataStore = new UserDataCollector(users);
@@ -205,7 +187,7 @@ public class EngineGui
                 {
                     Logger.getLogger(AddBookGui.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
+
                 // Refresh both lists
                 userList.removeAll();
                 for (User user : users)
