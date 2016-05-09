@@ -1,5 +1,7 @@
 package engine;
 
+import engineTest.AddBookGuiTest;
+import engineTest.BookDataCollectorTest;
 import engineTest.UserDataCollectorTest;
 import java.awt.*;
 import java.awt.event.*;
@@ -12,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author dpoumakis
  */
-public class UsersGui
+public class EngineGui
 {
 
     private List userList;
@@ -25,7 +27,7 @@ public class UsersGui
     private Panel controlPanel;
     private Label msglabel;
 
-    public UsersGui(ArrayList<User> users, ArrayList<Book> books)
+    public EngineGui(ArrayList<User> users, ArrayList<Book> books)
     {
         this.users = users;
         this.books = books;
@@ -127,21 +129,6 @@ public class UsersGui
                     }
 
                 }
-                /*
-                 Label bookTitle = new Label();
-                 Label userRating = new Label();
-                 for (int i = 0; i < 55; i++)
-                 {
-                 bookTitle.setText(books.get(i).getTitle());
-                 userRating.setText((String) users.get(i).getRatings().get(i));
-                    
-                 //list.add(bookTitle.getText() + "->" + userRating.getText());
-                    
-                 }
-                 statusLabel.setText("A Frame shown to the user.");
-                 msglabel.setText(list.getItem(list.getSelectedIndex()));
-                 System.out.println(msglabel.getText());
-                 */
                 frame.setVisible(true);
             }
         });
@@ -176,7 +163,7 @@ public class UsersGui
         });
         controlPanel.add(bookButton);
 
-        // Frame button for opening selected user
+        // Frame button for adding a new user
         Button addUserButton = new Button("Add user");
 
         addUserButton.addActionListener(new ActionListener()
@@ -186,20 +173,59 @@ public class UsersGui
             {
                 AddUserGui addUser = new AddUserGui(users, books);
 
-                // Try and store data into text file :)
                 try
                 {
                     UserDataCollector dataStore = new UserDataCollector(users);
                 }
                 catch (IOException ex)
                 {
-                    Logger.getLogger(UserDataCollectorTest.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UserDataCollector.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                //frame.setVisible(true);
-                //frame.setVisible(true);
+                
+                // Refresh the list
+                userList.removeAll();
+                for (User user : users)
+                {
+                    userList.add(user.getUsername());
+                }
             }
         });
         controlPanel.add(addUserButton);
+        
+        // Frame button for adding a new book
+        Button addBookButton = new Button("Add book");
+
+        addBookButton.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                AddBookGui addBook = new AddBookGui(users, books);
+                
+                try
+                {
+                    UserDataCollector userDataStore = new UserDataCollector(users);
+                    BookDataCollector bookDataStore = new BookDataCollector(books);
+                }
+                catch (IOException ex)
+                {
+                    Logger.getLogger(AddBookGui.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                // Refresh both lists
+                userList.removeAll();
+                for (User user : users)
+                {
+                    userList.add(user.getUsername());
+                }
+                bookList.removeAll();
+                for (Book book : books)
+                {
+                    bookList.add(book.getTitle());
+                }
+            }
+        });
+        controlPanel.add(addBookButton);
 
         mainFrame.setVisible(true);
     }

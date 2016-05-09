@@ -4,7 +4,7 @@ import engine.Book;
 import engine.BooksDataLoader;
 import engine.User;
 import engine.UsersDataLoader;
-import engine.UsersGui;
+import engine.EngineGui;
 import java.util.ArrayList;
 
 /**
@@ -22,7 +22,7 @@ public class UsersGuiTest
         ArrayList<Book> books = bookLoader.getBooks();
         
         
-        UsersGui usersGUI = new UsersGui(users, books);
+        EngineGui usersGUI = new EngineGui(users, books);
         
         usersGUI.showFrameDemo();
     }
