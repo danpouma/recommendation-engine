@@ -30,7 +30,7 @@ public class BooksDataLoader
             instream = new FileInputStream(userRatingFile);
             bookData = new DataInputStream(instream);
             
-            for (int i = 0; i < 55; i++)
+            while (instream.available() > 0)
             {   
                 line = (String) bookData.readLine();
 

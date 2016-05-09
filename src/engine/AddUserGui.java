@@ -3,10 +3,10 @@ package engine;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class NewUserGui
+public class AddUserGui
 {
 
-    public NewUserGui(ArrayList<User> users, ArrayList<Book> books)
+    public AddUserGui(ArrayList<User> users, ArrayList<Book> books)
     {
         String username = "";
         boolean validUsername = false;

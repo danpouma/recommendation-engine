@@ -1,7 +1,7 @@
 package engineTest;
 
 import engine.User;
-import engine.UserDataStorage;
+import engine.UserDataCollector;
 import engine.UsersDataLoader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author dpoumakis
  */
-public class UserDataStorageTest
+public class UserDataCollectorTest
 {
     public static void main(String[] args)
     {
@@ -22,11 +22,11 @@ public class UserDataStorageTest
         
         try
         {
-            UserDataStorage dataStore = new UserDataStorage(users);
+            UserDataCollector dataStore = new UserDataCollector(users);
         }
         catch (IOException ex)
         {
-            Logger.getLogger(UserDataStorageTest.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDataCollectorTest.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

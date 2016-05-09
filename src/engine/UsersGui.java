@@ -1,6 +1,6 @@
 package engine;
 
-import engineTest.UserDataStorageTest;
+import engineTest.UserDataCollectorTest;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -184,17 +184,18 @@ public class UsersGui
             @Override
             public void actionPerformed(ActionEvent e)
             {
-                NewUserGui addUser = new NewUserGui(users, books);
+                AddUserGui addUser = new AddUserGui(users, books);
 
                 // Try and store data into text file :)
                 try
                 {
-                    UserDataStorage dataStore = new UserDataStorage(users);
+                    UserDataCollector dataStore = new UserDataCollector(users);
                 }
                 catch (IOException ex)
                 {
-                    Logger.getLogger(UserDataStorageTest.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UserDataCollectorTest.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                //frame.setVisible(true);
                 //frame.setVisible(true);
             }
         });

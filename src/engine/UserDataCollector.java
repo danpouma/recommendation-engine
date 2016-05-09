@@ -10,9 +10,9 @@ import java.util.logging.Logger;
  *
  * @author dpoumakis
  */
-public class UserDataStorage
+public class UserDataCollector
 {
-    public UserDataStorage(ArrayList<User> users) throws IOException
+    public UserDataCollector(ArrayList<User> users) throws IOException
     {
         FileWriter fileWriter = null;
         
@@ -22,7 +22,7 @@ public class UserDataStorage
         }
         catch (IOException ex)
         {
-            Logger.getLogger(UserDataStorage.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(UserDataCollector.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         for (User user : users)
@@ -36,7 +36,7 @@ public class UserDataStorage
                 }
                 catch (IOException ex)
                 {
-                    Logger.getLogger(UserDataStorage.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(UserDataCollector.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }
