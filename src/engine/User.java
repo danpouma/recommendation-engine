@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class User
 {
+
     private final int id;
     private String username;
     private String gender;
@@ -25,7 +26,7 @@ public class User
         ratings = new ArrayList();
         recommendations = new Recommendations(id);
     }
-    
+
     public User(String username)
     {
         id = counter++;
@@ -35,7 +36,7 @@ public class User
         ratings = new ArrayList();
         recommendations = new Recommendations(id);
     }
-    
+
     public User(String username, String gender, int age)
     {
         id = counter++;
@@ -55,7 +56,7 @@ public class User
     {
         this.ratings = ratings;
     }
-    
+
     // Make sure this works
     public void addRating(Object rating)
     {
@@ -67,7 +68,6 @@ public class User
         this.username = username;
     }
 
-
     public void setGender(String gender)
     {
         this.gender = gender;
@@ -77,12 +77,12 @@ public class User
     {
         this.age = age;
     }
-    
+
     public int getId()
     {
         return id;
     }
-    
+
     public String getUsername()
     {
         return username;
@@ -97,22 +97,22 @@ public class User
     {
         return age;
     }
-    
+
     public Recommendations getRecommendations()
     {
         return recommendations;
     }
-    
+
     @Override
     public String toString()
     {
         String ratingsOutput = "";
-        
+
         for (Object rating : ratings)
         {
-           ratingsOutput += rating.toString() + " ";
+            ratingsOutput += rating.toString() + " ";
         }
-        
+
         return username + ", " + ratingsOutput;
     }
 }

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class AddBookGui
 {
-    
+
     public AddBookGui(ArrayList<User> users, ArrayList<Book> books)
     {
         String authorName = "";
@@ -38,8 +38,7 @@ public class AddBookGui
                 validAuthorName = false;
             }
         } while (!validAuthorName);
-        
-        
+
         String bookName = "";
         boolean validBookName = false;
 
@@ -62,17 +61,15 @@ public class AddBookGui
                 validBookName = false;
             }
         } while (!validBookName);
-        
-        
-        
+
         Book book = new Book(authorName, bookName);
-        
+
         // Adding rating for each user 
         for (User user : users)
         {
             user.addRating(0);
         }
-        
+
         books.add(book);
     }
 
@@ -90,11 +87,11 @@ public class AddBookGui
 
         return alreadyTaken;
     }
-    
+
     private boolean bookAlreadyTaken(String bookName, ArrayList<Book> books)
     {
         boolean alreadyTaken = false;
-        
+
         for (Book book : books)
         {
             if (book.getTitle().equals(bookName))
@@ -102,7 +99,7 @@ public class AddBookGui
                 alreadyTaken = true;
             }
         }
-        
+
         return alreadyTaken;
     }
 }

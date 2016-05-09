@@ -17,10 +17,11 @@ import java.util.logging.Logger;
  */
 public class BookDataCollector
 {
+
     public BookDataCollector(ArrayList<Book> books) throws IOException
     {
         FileWriter fileWriter = null;
-        
+
         try
         {
             fileWriter = new FileWriter("./BookList.txt");
@@ -45,7 +46,7 @@ public class BookDataCollector
                 }
             }
         }
-        
+
         fileWriter.close();
 
     }

@@ -8,20 +8,21 @@ import java.util.ArrayList;
  */
 public class MatchFinder
 {
-     public MatchFinder(User user, ArrayList<User> users)
-     {
-         for (int person = 1; person < users.size(); person++)
-         {
-             User currentUser = users.get(person);
-             
-             ArrayList userRatings = user.getRatings();
-             ArrayList currentUserRatings = currentUser.getRatings();
-             
-             int numberOfRatings = currentUserRatings.size();
-             
-             int matches = 0;
-             for (int rating = 0; rating < numberOfRatings; rating++)
-             {
+
+    public MatchFinder(User user, ArrayList<User> users)
+    {
+        for (int person = 1; person < users.size(); person++)
+        {
+            User currentUser = users.get(person);
+
+            ArrayList userRatings = user.getRatings();
+            ArrayList currentUserRatings = currentUser.getRatings();
+
+            int numberOfRatings = currentUserRatings.size();
+
+            int matches = 0;
+            for (int rating = 0; rating < numberOfRatings; rating++)
+            {
                 if (userRatings.get(rating).equals(currentUserRatings.get(rating)))
                 {
                     matches++;
@@ -30,9 +31,9 @@ public class MatchFinder
                 {
                     // do nothing
                 }
-             }
-             System.out.println("Matches: " + matches);
-             matches = 0;
-          }
-     }
+            }
+            System.out.println("Matches: " + matches);
+            matches = 0;
+        }
+    }
 }

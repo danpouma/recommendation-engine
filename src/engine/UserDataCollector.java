@@ -12,10 +12,11 @@ import java.util.logging.Logger;
  */
 public class UserDataCollector
 {
+
     public UserDataCollector(ArrayList<User> users) throws IOException
     {
         FileWriter fileWriter = null;
-        
+
         try
         {
             fileWriter = new FileWriter("./UserData.txt");

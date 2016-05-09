@@ -6,6 +6,7 @@ package engine;
  */
 public class Genre
 {
+
     private int id;
     private String name;
     private String description;
@@ -16,7 +17,7 @@ public class Genre
         name = "";
         description = "";
     }
-    
+
     public Genre(int id, String name, String description)
     {
         this.id = id;

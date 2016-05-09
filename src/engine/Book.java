@@ -6,16 +6,17 @@ package engine;
  */
 public class Book
 {
+
     private String title;
     private int genre;
     private String author;
-    
-    public Book() 
+
+    public Book()
     {
         title = "";
         author = "";
     }
-    
+
     public Book(String author, String title)
     {
         this.author = author;
@@ -26,12 +27,12 @@ public class Book
     {
         return title;
     }
-    
+
     public int getGenre()
     {
         return genre;
     }
-    
+
     public String getAuthor()
     {
         return author;
@@ -41,12 +42,12 @@ public class Book
     {
         this.title = title;
     }
-    
+
     public void setGenre(int genre)
     {
         this.genre = genre;
     }
-    
+
     public void setAuthor(String author)
     {
         this.author = author;

@@ -13,17 +13,18 @@ import java.util.StringTokenizer;
  */
 public class DataLoader
 {
+
     File userRatingFile;
     File booksFile;
-    
+
     FileInputStream userRatingStream;
     FileInputStream bookStream;
-    
+
     DataInputStream userRatingDataFile;
     DataInputStream bookDataFile;
 
     String line;
-    
+
     StringTokenizer stringTok;
 
     public DataLoader(ArrayList<User> users)
@@ -36,27 +37,26 @@ public class DataLoader
             bookStream = new FileInputStream(booksFile);
             userRatingDataFile = new DataInputStream(userRatingStream);
             bookDataFile = new DataInputStream(bookStream);
-            
-            
+
             for (int i = 0; i < 55; i++)
             {
                 line = (String) userRatingDataFile.readLine();
-                
+
                 User user = new User(line);
-                
+
                 line = (String) userRatingDataFile.readLine();
-                
-                stringTok = new StringTokenizer(line); 
-                
+
+                stringTok = new StringTokenizer(line);
+
                 while (stringTok.hasMoreTokens())
                 {
-                    user.getRecommendations().addRating(stringTok.nextToken());        
+                    user.getRecommendations().addRating(stringTok.nextToken());
                 }
-                
+
                 String bookLine = (String) bookDataFile.readLine();
                 Book book = new Book();
                 stringTok = new StringTokenizer(bookLine);
-                
+
                 while (stringTok.hasMoreTokens())
                 {
                     book.setAuthor(stringTok.nextToken(","));
@@ -70,13 +70,13 @@ public class DataLoader
                 users.add(user);
             }
             userRatingStream.close();
-        } 
+        }
         catch (Exception e)
         {
             System.out.println(e);
             System.out.println("Error");
         }
-        
+
         for (User user : users)
         {
             LinkedList ratings = user.getRecommendations().getRatings();

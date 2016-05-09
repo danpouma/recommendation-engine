@@ -30,15 +30,15 @@ public class AddUserGui
                 validUsername = false;
             }
         } while (!validUsername);
-        
+
         User user = new User(username);
-        
+
         // Set each rating to 0 by default
         for (int bookRating = 0; bookRating < books.size(); bookRating++)
         {
             user.addRating(0);
         }
-        
+
         users.add(user);
     }
 
