@@ -1,8 +1,5 @@
 package engine;
 
-import engineTest.AddBookGuiTest;
-import engineTest.BookDataCollectorTest;
-import engineTest.UserDataCollectorTest;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.IOException;
@@ -37,11 +34,12 @@ public class EngineGui
 
     public void prepareGUI()
     {
-        mainFrame = new Frame("UsersGUI");
+        mainFrame = new Frame("Recommendation Engine! by Daniel Poumakis");
         mainFrame.setSize(800, 600);
         mainFrame.setLayout(new GridLayout(1, 2));
         mainFrame.addWindowListener(new WindowAdapter()
         {
+            @Override
             public void windowClosing(WindowEvent windowEvent)
             {
                 System.exit(0);
@@ -60,8 +58,7 @@ public class EngineGui
         controlPanel = new Panel();
         controlPanel.setLayout(new FlowLayout());
 
-        // Test to add list stuff
-        // Will need to loop to add people
+        // User && Book list
         userList = new List(4, false);
         bookList = new List(4, false);
 
@@ -76,10 +73,7 @@ public class EngineGui
         }
         mainFrame.add(userList);
         mainFrame.add(bookList);
-
-        //mainFrame.add(headerLabel);
         mainFrame.add(controlPanel);
-        //mainFrame.add(statusLabel);
         mainFrame.setVisible(true);
     }
 
