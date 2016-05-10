@@ -35,7 +35,8 @@ public class EngineGui
     {
         mainFrame = new Frame("Recommendation Engine! by Daniel Poumakis");
         mainFrame.setSize(800, 600);
-        mainFrame.setLayout(new GridLayout(1, 2));
+        mainFrame.setLocationRelativeTo(null);
+        mainFrame.setLayout(new GridLayout(1,2));
         mainFrame.addWindowListener(new WindowAdapter()
         {
             @Override
@@ -54,8 +55,12 @@ public class EngineGui
 
         controlPanel = new Panel();
         controlPanel.setLayout(new FlowLayout());
-
-        // User && Book list
+        
+        // User && Book labels
+        Label userLabel = new Label("Users");
+        Label bookLabel = new Label("Books");
+        
+        // User && Book lists
         userList = new List(4, false);
         bookList = new List(4, false);
 
@@ -68,9 +73,11 @@ public class EngineGui
         {
             bookList.add(book.getTitle());
         }
+        
         mainFrame.add(userList);
         mainFrame.add(bookList);
         mainFrame.add(controlPanel);
+        
         mainFrame.setVisible(true);
     }
 
@@ -79,7 +86,6 @@ public class EngineGui
         final Frame frame = new Frame();
         frame.setSize(600, 300);
         frame.setLayout(new GridLayout(1, 2));
-        //frame.add(msglabel);
 
         List list = new List();
         frame.add(list);

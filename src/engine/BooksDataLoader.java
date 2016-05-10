@@ -18,7 +18,6 @@ public class BooksDataLoader
     DataInputStream bookData;
     String line;
     StringTokenizer stringTok;
-
     ArrayList<Book> books;
 
     public BooksDataLoader()
