@@ -16,6 +16,7 @@ public class User
     private static int counter = 0;
     private ArrayList ratings;
     private Recommendations recommendations;
+    private User mostSimilar;
 
     public User()
     {
@@ -25,6 +26,7 @@ public class User
         age = 0;
         ratings = new ArrayList();
         recommendations = new Recommendations(id);
+        mostSimilar = null;
     }
 
     public User(String username)
@@ -35,6 +37,7 @@ public class User
         age = 0;
         ratings = new ArrayList();
         recommendations = new Recommendations(id);
+        mostSimilar = null;
     }
 
     public User(String username, String gender, int age)
@@ -45,6 +48,17 @@ public class User
         this.age = age;
         ratings = new ArrayList();
         recommendations = new Recommendations(id);
+        mostSimilar = null;
+    }
+
+    public User getMostSimilar()
+    {
+        return mostSimilar;
+    }
+
+    public void setMostSimilar(User mostSimilar)
+    {
+        this.mostSimilar = mostSimilar;
     }
 
     public ArrayList getRatings()

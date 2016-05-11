@@ -9,31 +9,39 @@ import java.util.ArrayList;
 public class MatchFinder
 {
 
-    public MatchFinder(User user, ArrayList<User> users)
+    public MatchFinder(ArrayList<User> users)
     {
-        for (int person = 1; person < users.size(); person++)
+        for (User currentUser : users)
         {
-            User currentUser = users.get(person);
-
-            ArrayList userRatings = user.getRatings();
-            ArrayList currentUserRatings = currentUser.getRatings();
-
-            int numberOfRatings = currentUserRatings.size();
-
-            int matches = 0;
-            for (int rating = 0; rating < numberOfRatings; rating++)
+            User topMatch = null;
+            int topMatches = 0;
+            for (User otherUser : users)
             {
-                if (userRatings.get(rating).equals(currentUserRatings.get(rating)))
+                int matches = 0;
+                for (int rating = 0; rating < otherUser.getRatings().size(); rating++)
                 {
-                    matches++;
+                    if (!currentUser.getUsername().equals(otherUser.getUsername()))
+                    {   
+                        if (currentUser.getRatings().get(rating).equals(otherUser.getRatings().get(rating)))
+                        {
+                            matches++;
+                        }
+                    }
+                }
+                
+                if ( matches > topMatches)
+                {
+                    topMatch = otherUser;
+                    topMatches = matches;
                 }
                 else
                 {
-                    // do nothing
+                    //System.out.println("y8");
                 }
+                
             }
-            System.out.println("Matches: " + matches);
-            matches = 0;
+            
+            currentUser.setMostSimilar(topMatch);
         }
     }
 }
